@@ -1,0 +1,19 @@
+generated: '2026-09-28'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://docs.bito.ai/ai-code-reviews-in-git/install-run-as-a-self-hosted-service/cli-vs-webhooks-service.md
+sources:
+- https://docs.bito.ai/ai-code-reviews-in-git/install-run-as-a-self-hosted-service/cli-vs-webhooks-service.md
+- https://docs.bito.ai/ai-code-reviews-in-git/install-run-as-a-self-hosted-service/install-run-via-webhooks-service.md
+description: Bito's AI Code Review Agent can be run as a webhook service that receives GitHub or GitLab webhook events.
+events:
+- event: Issue comments
+  description: Triggers code review on‑demand when a command is issued in a pull request comment.
+- event: Pull requests
+  description: Auto‑triggers a code review when a pull request is created.
+- event: Pull request review comments
+  description: Allows feedback on the review quality by answering the feedback question in the code review comment.
+delivery:
+  content_type: application/json
+note: The webhook secret token entered during setup is used to validate payloads; no specific retry policy is documented on the pages.
+docs: https://docs.bito.ai/ai-code-reviews-in-git/install-run-as-a-self-hosted-service/cli-vs-webhooks-service.md

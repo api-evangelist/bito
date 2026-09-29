@@ -1,0 +1,306 @@
+generated: '2026-09-28'
+method: derived
+generator: derive-vocabulary.py
+source: openapi/_original/flipt-openapi.yaml
+vocabulary:
+  name: Bito Domain Vocabulary
+  description: 'Terms declared by Bito''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions. Derived,
+    not authored.'
+  version: '2026-09-28'
+  terms:
+  - term: Authentication
+    definition: 'Object declared by the contract with fields: id, method, expiresAt, createdAt, updatedAt, metadata.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/Authentication
+  - term: AuthorizeURLResponse
+    definition: 'Object declared by the contract with fields: authorizeUrl.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/AuthorizeURLResponse
+  - term: BatchEvaluationRequest
+    definition: 'Object declared by the contract with fields: requestId, requests, reference.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/BatchEvaluationRequest
+  - term: BatchEvaluationResponse
+    definition: 'Object declared by the contract with fields: requestId, responses, requestDurationMillis.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/BatchEvaluationResponse
+  - term: BooleanEvaluationResponse
+    definition: 'Object declared by the contract with fields: enabled, reason, requestId, requestDurationMillis, timestamp, flagKey, segmentKeys.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/BooleanEvaluationResponse
+  - term: BulkEvaluationResponse
+    definition: 'Object declared by the contract with fields: flags.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/BulkEvaluationResponse
+  - term: CacheInvalidation
+    definition: 'Object declared by the contract with fields: polling.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/CacheInvalidation
+  - term: CallbackResponse
+    definition: 'Object declared by the contract with fields: clientToken, authentication.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/CallbackResponse
+  - term: Capabilities
+    definition: 'Object declared by the contract with fields: cacheInvalidation, flagEvaluation.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/Capabilities
+  - term: Constraint
+    definition: 'Object declared by the contract with fields: id, segmentKey, type, property, operator, value, createdAt, updatedAt, namespaceKey,
+      description.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/Constraint
+  - term: CreateConstraintRequest
+    definition: 'Object declared by the contract with fields: segmentKey, type, property, operator, value, namespaceKey, description.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/CreateConstraintRequest
+  - term: CreateDistributionRequest
+    definition: 'Object declared by the contract with fields: flagKey, ruleId, variantId, rollout, namespaceKey.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/CreateDistributionRequest
+  - term: CreateFlagRequest
+    definition: 'Object declared by the contract with fields: key, name, description, enabled, namespaceKey, type, metadata.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/CreateFlagRequest
+  - term: CreateNamespaceRequest
+    definition: 'Object declared by the contract with fields: key, name, description.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/CreateNamespaceRequest
+  - term: CreateRolloutRequest
+    definition: 'Object declared by the contract with fields: namespaceKey, flagKey, rank, description, segment, threshold.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/CreateRolloutRequest
+  - term: CreateRuleRequest
+    definition: 'Object declared by the contract with fields: flagKey, segmentKey, rank, namespaceKey, segmentKeys, segmentOperator.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/CreateRuleRequest
+  - term: CreateSegmentRequest
+    definition: 'Object declared by the contract with fields: key, name, description, matchType, namespaceKey.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/CreateSegmentRequest
+  - term: CreateTokenRequest
+    definition: 'Object declared by the contract with fields: name, description, expiresAt, namespaceKey, metadata.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/CreateTokenRequest
+  - term: CreateTokenResponse
+    definition: 'Object declared by the contract with fields: clientToken, authentication.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/CreateTokenResponse
+  - term: CreateVariantRequest
+    definition: 'Object declared by the contract with fields: flagKey, key, name, description, attachment, namespaceKey.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/CreateVariantRequest
+  - term: Distribution
+    definition: 'Object declared by the contract with fields: id, ruleId, variantId, rollout, createdAt, updatedAt.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/Distribution
+  - term: ErrorEvaluationResponse
+    definition: 'Object declared by the contract with fields: flagKey, namespaceKey, reason.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/ErrorEvaluationResponse
+  - term: EvaluateBulkRequest
+    definition: 'Object declared by the contract with fields: context.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/EvaluateBulkRequest
+  - term: EvaluateFlagRequest
+    definition: 'Object declared by the contract with fields: key, context.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/EvaluateFlagRequest
+  - term: EvaluatedFlag
+    definition: 'Object declared by the contract with fields: key, reason, variant, metadata, value.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/EvaluatedFlag
+  - term: EvaluationRequest
+    definition: 'Object declared by the contract with fields: requestId, namespaceKey, flagKey, entityId, context, reference.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/EvaluationRequest
+  - term: EvaluationResponse
+    definition: 'Object declared by the contract with fields: type, booleanResponse, variantResponse, errorResponse.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/EvaluationResponse
+  - term: Flag
+    definition: 'Object declared by the contract with fields: key, name, description, enabled, createdAt, updatedAt, variants, namespaceKey, type,
+      defaultVariant, metadata.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/Flag
+  - term: FlagEvaluation
+    definition: 'Object declared by the contract with fields: supportedTypes.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/FlagEvaluation
+  - term: FlagList
+    definition: 'Object declared by the contract with fields: flags, nextPageToken, totalCount.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/FlagList
+  - term: GetProviderConfigurationResponse
+    definition: 'Object declared by the contract with fields: name, capabilities.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/GetProviderConfigurationResponse
+  - term: GoogleProtobufValue
+    definition: Represents a dynamically typed value which can be either null, a number, a string, a boolean, a recursive struct value, or a list
+      of values.
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/GoogleProtobufValue
+  - term: ListAuthenticationsResponse
+    definition: 'Object declared by the contract with fields: authentications, nextPageToken.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/ListAuthenticationsResponse
+  - term: Namespace
+    definition: 'Object declared by the contract with fields: key, name, description, protected, createdAt, updatedAt.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/Namespace
+  - term: NamespaceList
+    definition: 'Object declared by the contract with fields: namespaces, nextPageToken, totalCount.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/NamespaceList
+  - term: OrderRolloutsRequest
+    definition: 'Object declared by the contract with fields: flagKey, namespaceKey, rolloutIds.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/OrderRolloutsRequest
+  - term: OrderRulesRequest
+    definition: 'Object declared by the contract with fields: flagKey, ruleIds, namespaceKey.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/OrderRulesRequest
+  - term: Polling
+    definition: 'Object declared by the contract with fields: enabled, minPollingIntervalMs.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/Polling
+  - term: Rollout
+    definition: 'Object declared by the contract with fields: id, namespaceKey, flagKey, type, rank, description, createdAt, updatedAt, segment,
+      threshold.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/Rollout
+  - term: RolloutList
+    definition: 'Object declared by the contract with fields: rules, nextPageToken, totalCount.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/RolloutList
+  - term: RolloutSegment
+    definition: 'Object declared by the contract with fields: segmentKey, value, segmentKeys, segmentOperator.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/RolloutSegment
+  - term: RolloutThreshold
+    definition: 'Object declared by the contract with fields: percentage, value.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/RolloutThreshold
+  - term: Rule
+    definition: 'Object declared by the contract with fields: id, flagKey, segmentKey, distributions, rank, createdAt, updatedAt, namespaceKey,
+      segmentKeys, segmentOperator.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/Rule
+  - term: RuleList
+    definition: 'Object declared by the contract with fields: rules, nextPageToken, totalCount.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/RuleList
+  - term: Segment
+    definition: 'Object declared by the contract with fields: key, name, description, createdAt, updatedAt, constraints, matchType, namespaceKey.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/Segment
+  - term: SegmentList
+    definition: 'Object declared by the contract with fields: segments, nextPageToken, totalCount.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/SegmentList
+  - term: UpdateConstraintRequest
+    definition: 'Object declared by the contract with fields: id, segmentKey, type, property, operator, value, namespaceKey, description.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/UpdateConstraintRequest
+  - term: UpdateDistributionRequest
+    definition: 'Object declared by the contract with fields: id, flagKey, ruleId, variantId, rollout, namespaceKey.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/UpdateDistributionRequest
+  - term: UpdateFlagRequest
+    definition: 'Object declared by the contract with fields: key, name, description, enabled, namespaceKey, defaultVariantId, metadata.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/UpdateFlagRequest
+  - term: UpdateNamespaceRequest
+    definition: 'Object declared by the contract with fields: key, name, description.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/UpdateNamespaceRequest
+  - term: UpdateRolloutRequest
+    definition: 'Object declared by the contract with fields: id, namespaceKey, flagKey, description, segment, threshold.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/UpdateRolloutRequest
+  - term: UpdateRuleRequest
+    definition: 'Object declared by the contract with fields: id, flagKey, segmentKey, namespaceKey, segmentKeys, segmentOperator.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/UpdateRuleRequest
+  - term: UpdateSegmentRequest
+    definition: 'Object declared by the contract with fields: key, name, description, matchType, namespaceKey.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/UpdateSegmentRequest
+  - term: UpdateVariantRequest
+    definition: 'Object declared by the contract with fields: id, flagKey, key, name, description, attachment, namespaceKey.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/UpdateVariantRequest
+  - term: Variant
+    definition: 'Object declared by the contract with fields: id, flagKey, key, name, description, createdAt, updatedAt, attachment, namespaceKey.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/Variant
+  - term: VariantEvaluationResponse
+    definition: 'Object declared by the contract with fields: match, segmentKeys, reason, variantKey, variantAttachment, requestId, requestDurationMillis,
+      timestamp, flagKey.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/VariantEvaluationResponse
+  - term: VerifyServiceAccountRequest
+    definition: 'Object declared by the contract with fields: serviceAccountToken.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/VerifyServiceAccountRequest
+  - term: VerifyServiceAccountResponse
+    definition: 'Object declared by the contract with fields: clientToken, authentication.'
+    tags:
+    - Object
+    source: openapi/_original/flipt-openapi.yaml#/components/schemas/VerifyServiceAccountResponse

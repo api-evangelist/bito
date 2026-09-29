@@ -1,0 +1,27 @@
+generated: '2026-09-28'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://bito.ai/pricing/
+sources:
+- https://bito.ai/pricing/
+- https://docs.bito.ai/help/billing-and-plans.md
+- https://docs.bito.ai/help/billing-and-plans/overview.md
+- https://docs.bito.ai/help/billing-and-plans/payment-methods.md
+name: Bito pricing
+audience: consumer
+pricing_basis: per-seat
+plans:
+- name: Free Plan
+  price_text: Free
+  description: No cost plan for individual developers
+- name: Enterprise Plan
+  price_text: Custom
+  description: Custom seat‑based plan for large organizations
+- name: AI Architect Professional Plan
+  price_text: Contact us for pricing
+  description: Usage‑based plan for AI Architect
+- name: AI Architect Enterprise Plan
+  price_text: Contact us for pricing
+  description: Custom usage‑based plan for AI Architect
+docs: https://bito.ai/pricing/
+note: 2 extracted row(s) were dropped because their quote was not on the page.

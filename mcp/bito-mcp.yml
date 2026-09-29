@@ -1,0 +1,214 @@
+generated: '2026-09-28'
+method: derived
+generator: derive-mcp-candidate.py
+source:
+- openapi/_original/flipt-openapi.yaml
+status: candidate
+deployment:
+  mode: none
+  auth: unknown
+  verified: probed
+note: 'No MCP server was found. The pre-flight posted tools/list to /mcp on api.bito.ai, docs.bito.ai, bito.ai, status.bito.ai; verdict opaque
+  (https://alpha.bito.ai/api/mcp answered 403: the edge authenticates before it routes, which proves nothing either way). Candidate tools below
+  are derived from the 51 operation(s) in the provider''s own OpenAPI (40 listed); they describe what a server WOULD expose, not one that exists.'
+tools:
+- name: list_namespaces
+  operationId: listNamespaces
+  method: GET
+  path: /api/v1/namespaces
+  description: GET /api/v1/namespaces
+- name: create_namespace
+  operationId: createNamespace
+  method: POST
+  path: /api/v1/namespaces
+  description: POST /api/v1/namespaces
+- name: get_namespace
+  operationId: getNamespace
+  method: GET
+  path: /api/v1/namespaces/{key}
+  description: GET /api/v1/namespaces/{key}
+- name: update_namespace
+  operationId: updateNamespace
+  method: PUT
+  path: /api/v1/namespaces/{key}
+  description: PUT /api/v1/namespaces/{key}
+- name: delete_namespace
+  operationId: deleteNamespace
+  method: DELETE
+  path: /api/v1/namespaces/{key}
+  description: DELETE /api/v1/namespaces/{key}
+- name: list_flags
+  operationId: listFlags
+  method: GET
+  path: /api/v1/namespaces/{namespaceKey}/flags
+  description: GET /api/v1/namespaces/{namespaceKey}/flags
+- name: create_flag
+  operationId: createFlag
+  method: POST
+  path: /api/v1/namespaces/{namespaceKey}/flags
+  description: POST /api/v1/namespaces/{namespaceKey}/flags
+- name: list_rollouts
+  operationId: listRollouts
+  method: GET
+  path: /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rollouts
+  description: GET /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rollouts
+- name: create_rollout
+  operationId: createRollout
+  method: POST
+  path: /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rollouts
+  description: POST /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rollouts
+- name: order_rollouts
+  operationId: orderRollouts
+  method: PUT
+  path: /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rollouts/order
+  description: PUT /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rollouts/order
+- name: get_rollout
+  operationId: getRollout
+  method: GET
+  path: /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rollouts/{id}
+  description: GET /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rollouts/{id}
+- name: update_rollout
+  operationId: updateRollout
+  method: PUT
+  path: /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rollouts/{id}
+  description: PUT /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rollouts/{id}
+- name: delete_rollout
+  operationId: deleteRollout
+  method: DELETE
+  path: /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rollouts/{id}
+  description: DELETE /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rollouts/{id}
+- name: list_rules
+  operationId: listRules
+  method: GET
+  path: /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rules
+  description: GET /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rules
+- name: create_rule
+  operationId: createRule
+  method: POST
+  path: /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rules
+  description: POST /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rules
+- name: order_rules
+  operationId: orderRules
+  method: PUT
+  path: /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rules/order
+  description: PUT /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rules/order
+- name: get_rule
+  operationId: getRule
+  method: GET
+  path: /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rules/{id}
+  description: GET /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rules/{id}
+- name: update_rule
+  operationId: updateRule
+  method: PUT
+  path: /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rules/{id}
+  description: PUT /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rules/{id}
+- name: delete_rule
+  operationId: deleteRule
+  method: DELETE
+  path: /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rules/{id}
+  description: DELETE /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rules/{id}
+- name: create_distribution
+  operationId: createDistribution
+  method: POST
+  path: /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rules/{ruleId}/distributions
+  description: POST /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rules/{ruleId}/distributions
+- name: update_distribution
+  operationId: updateDistribution
+  method: PUT
+  path: /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rules/{ruleId}/distributions/{id}
+  description: PUT /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rules/{ruleId}/distributions/{id}
+- name: delete_distribution
+  operationId: deleteDistribution
+  method: DELETE
+  path: /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rules/{ruleId}/distributions/{id}
+  description: DELETE /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rules/{ruleId}/distributions/{id}
+- name: create_variant
+  operationId: createVariant
+  method: POST
+  path: /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/variants
+  description: POST /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/variants
+- name: update_variant
+  operationId: updateVariant
+  method: PUT
+  path: /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/variants/{id}
+  description: PUT /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/variants/{id}
+- name: delete_variant
+  operationId: deleteVariant
+  method: DELETE
+  path: /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/variants/{id}
+  description: DELETE /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/variants/{id}
+- name: get_flag
+  operationId: getFlag
+  method: GET
+  path: /api/v1/namespaces/{namespaceKey}/flags/{key}
+  description: GET /api/v1/namespaces/{namespaceKey}/flags/{key}
+- name: update_flag
+  operationId: updateFlag
+  method: PUT
+  path: /api/v1/namespaces/{namespaceKey}/flags/{key}
+  description: PUT /api/v1/namespaces/{namespaceKey}/flags/{key}
+- name: delete_flag
+  operationId: deleteFlag
+  method: DELETE
+  path: /api/v1/namespaces/{namespaceKey}/flags/{key}
+  description: DELETE /api/v1/namespaces/{namespaceKey}/flags/{key}
+- name: list_segments
+  operationId: listSegments
+  method: GET
+  path: /api/v1/namespaces/{namespaceKey}/segments
+  description: GET /api/v1/namespaces/{namespaceKey}/segments
+- name: create_segment
+  operationId: createSegment
+  method: POST
+  path: /api/v1/namespaces/{namespaceKey}/segments
+  description: POST /api/v1/namespaces/{namespaceKey}/segments
+- name: get_segment
+  operationId: getSegment
+  method: GET
+  path: /api/v1/namespaces/{namespaceKey}/segments/{key}
+  description: GET /api/v1/namespaces/{namespaceKey}/segments/{key}
+- name: update_segment
+  operationId: updateSegment
+  method: PUT
+  path: /api/v1/namespaces/{namespaceKey}/segments/{key}
+  description: PUT /api/v1/namespaces/{namespaceKey}/segments/{key}
+- name: delete_segment
+  operationId: deleteSegment
+  method: DELETE
+  path: /api/v1/namespaces/{namespaceKey}/segments/{key}
+  description: DELETE /api/v1/namespaces/{namespaceKey}/segments/{key}
+- name: create_constraint
+  operationId: createConstraint
+  method: POST
+  path: /api/v1/namespaces/{namespaceKey}/segments/{segmentKey}/constraints
+  description: POST /api/v1/namespaces/{namespaceKey}/segments/{segmentKey}/constraints
+- name: update_constraint
+  operationId: updateConstraint
+  method: PUT
+  path: /api/v1/namespaces/{namespaceKey}/segments/{segmentKey}/constraints/{id}
+  description: PUT /api/v1/namespaces/{namespaceKey}/segments/{segmentKey}/constraints/{id}
+- name: delete_constraint
+  operationId: deleteConstraint
+  method: DELETE
+  path: /api/v1/namespaces/{namespaceKey}/segments/{segmentKey}/constraints/{id}
+  description: DELETE /api/v1/namespaces/{namespaceKey}/segments/{segmentKey}/constraints/{id}
+- name: kubernetes_verify_service_account
+  operationId: kubernetesVerifyServiceAccount
+  method: POST
+  path: /auth/v1/method/kubernetes/serviceaccount
+  description: POST /auth/v1/method/kubernetes/serviceaccount
+- name: oidc_authorize_url
+  operationId: oidcAuthorizeURL
+  method: GET
+  path: /auth/v1/method/oidc/{provider}/authorize
+  description: GET /auth/v1/method/oidc/{provider}/authorize
+- name: oidc_callback
+  operationId: oidcCallback
+  method: GET
+  path: /auth/v1/method/oidc/{provider}/callback
+  description: GET /auth/v1/method/oidc/{provider}/callback
+- name: create_method_token
+  operationId: createMethodToken
+  method: POST
+  path: /auth/v1/method/token
+  description: POST /auth/v1/method/token

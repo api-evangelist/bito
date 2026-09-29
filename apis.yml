@@ -1,23 +1,111 @@
 aid: bito
+
 name: Bito
-description: 'Bito is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+
+image: https://bito.ai/wp-content/uploads/2026/08/Option-A-1-2-1.webp
+
+description: 'Bito.ai provides an AI model routing platform that helps developers select and integrate large language models like Claude, Code, Cursor, and Codex. Their suite includes context engineering, autonomous agents, design and scoping tools, grounded coding, and AI code review agents. Bito aims to reduce development costs by optimizing model selection and offering a unified interface for AI-powered software engineering tasks.'
+
 url: https://raw.githubusercontent.com/api-evangelist/bito/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-09-28 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-09-28'
+
 modified: '2026-09-28'
+
 tags:
 - Company
-apis: []
+- AI
+- Developer Tools
+- SaaS
+- Machine Learning
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
+- type: Plans
+  url: plans/bito-plans-pricing.yml
+- type: Spectral
+  url: rules/bito-rules.yml
+- type: JSONLD
+  url: json-ld/bito-context.jsonld
+- type: Vocabulary
+  url: vocabulary/bito-vocabulary.yml
+- type: Webhooks
+  url: asyncapi/bito-webhooks.yml
+- type: DataModel
+  url: data-model/bito-data-model.yml
+- type: ChangeLog
+  url: changelog/bito-changelog.yml
+- type: Conformance
+  url: conformance/bito-conformance.yml
+- type: Overlay
+  url: overlays/bito-flipt-overlay.yaml
+- type: LLMsTxt
+  url: llms/bito-llms.txt
+- type: WellKnown
+  url: well-known/bito-well-known.yml
+- type: Hosts
+  url: hosts/bito-hosts.yml
+- type: Vendors
+  url: vendors/bito-vendors.yml
+- type: SDKs
+  url: packages/bito-packages.yml
+- type: Packages
+  url: packages/bito-packages.yml
+- type: TrustCenter
+  url: https://trust.bito.ai/
+- type: Security
+  url: https://bito.ai/enterprise/security/
+- type: ChangeLog
+  url: https://docs.bito.ai/whats-new
+- type: GettingStarted
+  url: https://docs.bito.ai/quickstart
+- type: DomainSecurity
+  url: security/bito-domain-security.yml
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://bito.ai
+
+- type: Documentation
+  url: https://docs.bito.ai
+- type: Blog
+  url: https://bito.ai/blogs/
+- type: GitHubOrganization
+  url: https://github.com/gitbito
+- type: Pricing
+  url: https://bito.ai/pricing/
+- type: TermsOfService
+  url: https://bito.ai/terms-of-use/
+- type: PrivacyPolicy
+  url: https://bito.ai/privacy-policy/
+- type: Support
+  url: https://status.bito.ai
+
+apis: []
+
+x-coverage:
+  state: unreadable
+  reason: js-rendered-docs
+  detail: Documentation at https://docs.bito.ai is rendered via Gitbook and provides no machine‑readable OpenAPI spec.
+  evidence:
+    - url: https://docs.bito.ai
+      status: 200
+  checked: '2026-09-28'
+x-enrichment:
+  date: '2026-09-28'
+  status: enriched
+  artifacts_added: 23
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local

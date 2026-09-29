@@ -1,0 +1,35 @@
+generated: '2026-09-28'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://docs.bito.ai/changelog.md
+sources:
+- https://docs.bito.ai/changelog.md
+- https://docs.bito.ai/changelog/previous-releases.md
+entries:
+- breaking: false
+  highlights:
+  - 'Introducing Bito Governor: A gateway that sits between your AI coding tools and the LLM providers.'
+  - It reduces the tokens each task consumes and the price you pay for every token.
+  - Governor combines Bito's AI Architect with a model router that sends each request to a model suited to it.
+  date: '2026-07-31'
+- breaking: false
+  highlights:
+  - 'Pull request and issue-level analytics: We''re excited to introduce the PR Analytics dashboard.'
+  - It gives you granular visibility into individual pull request performance and issue-level insights.
+  - See exactly how many issues were found in each pull request.
+  date: '2025-09-08'
+- breaking: false
+  highlights:
+  - Transitioning Bito's IDE extension to AI Code Reviews.
+  - 'Bito AI Code Reviews in IDE: Available in limited beta for VS Code and JetBrains IDEs.'
+  - The upcoming `@codereview` command will let you run localchanges, stagedchanges, path, and commitId reviews.
+  date: '2025-08-08'
+- breaking: false
+  highlights:
+  - 'Create custom code review guidelines in Bito Cloud: Workspaces on the Enterprise Plan can now create, manage, and apply custom code review
+    guidelines directly from the dashboard.'
+  - Previously, Enterprise teams had to send their guidelines to Bito for setup.
+  date: '2025-06-27'
+current_version: '2026-09-18'
+note: Versioning scheme is date-based (YYYY-MM-DD). 5 extracted row(s) were dropped because their quote was not on the page.
+docs: https://docs.bito.ai/changelog.md

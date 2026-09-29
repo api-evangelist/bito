@@ -1,0 +1,25 @@
+generated: '2026-09-28'
+method: searched
+source: https://docs.bito.ai/privacy-and-security
+signals:
+  data_retention:
+    evidence:
+      - source: https://docs.bito.ai/privacy-and-security
+        http_status: 200
+        fetched: "true"
+        quote: "Bito doesn't read or store your code. Nor do we use your code for AI model training."
+    note: Indicates that Bito does not retain user code data on its servers.
+  ai_transparency:
+    evidence:
+      - source: https://docs.bito.ai/privacy-and-security
+        http_status: 200
+        fetched: "true"
+        quote: "Bito doesn't read or store your code. Nor do we use your code for AI model training."
+    note: Shows transparency that user code is not used to train AI models.
+  trust_center:
+    evidence:
+      - source: https://docs.bito.ai/privacy-and-security
+        http_status: 200
+        fetched: "true"
+        quote: "Our Trust Center outlines our various accreditations (SOC 2 Type II)."
+    note: Mentions SOC 2 Type II accreditation.

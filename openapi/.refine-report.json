@@ -1,0 +1,33 @@
+{
+  "provider": "bito",
+  "sources": [
+    "_original/flipt-openapi.yaml"
+  ],
+  "outputs": [
+    "bito-authenticationmethodkubernetesservice-api-openapi.yml",
+    "bito-authenticationmethodoidcservice-api-openapi.yml",
+    "bito-authenticationmethodtokenservice-api-openapi.yml",
+    "bito-authenticationservice-api-openapi.yml",
+    "bito-evaluationservice-api-openapi.yml",
+    "bito-flipt-api-openapi.yml",
+    "bito-ofrepservice-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "flipt-openapi.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "flipt-openapi.yaml: declared missing tag: ConstraintsService",
+    "flipt-openapi.yaml: declared missing tag: DistributionsService",
+    "flipt-openapi.yaml: declared missing tag: FlagsService",
+    "flipt-openapi.yaml: declared missing tag: NamespacesService",
+    "flipt-openapi.yaml: declared missing tag: RolloutsService",
+    "flipt-openapi.yaml: declared missing tag: RulesService",
+    "flipt-openapi.yaml: declared missing tag: SegmentsService",
+    "flipt-openapi.yaml: declared missing tag: VariantsService",
+    "flipt-openapi.yaml: multi-axis tagging (15 tags, 7 first tags, 1.71x duplication over 51 operations) \u2014 split on first tag, 36 operations narrowed",
+    "apis.yml register: written (+7 apis, 7 total)"
+  ],
+  "skipped": []
+}

@@ -93,8 +93,66 @@ common:
 - type: Support
   url: https://status.bito.ai
 
-apis: []
-
+apis:
+- aid: bito:bito-authenticationmethodkubernetesservice-api
+  name: Bito Authentication Method Kubernetes Service API
+  description: >-
+    The AuthenticationMethodKubernetesService API from Bito — 1 operation(s) for authenticationmethodkubernetesservice.
+  tags:
+  - AuthenticationMethodKubernetesService
+  properties:
+  - type: OpenAPI
+    url: openapi/bito-authenticationmethodkubernetesservice-api-openapi.yml
+- aid: bito:bito-authenticationmethodoidcservice-api
+  name: Bito Authentication Method OIDC Service API
+  description: >-
+    The AuthenticationMethodOIDCService API from Bito — 2 operation(s) for authenticationmethodoidcservice.
+  tags:
+  - AuthenticationMethodOIDCService
+  properties:
+  - type: OpenAPI
+    url: openapi/bito-authenticationmethodoidcservice-api-openapi.yml
+- aid: bito:bito-authenticationmethodtokenservice-api
+  name: Bito Authentication Method Token Service API
+  description: >-
+    The AuthenticationMethodTokenService API from Bito — 1 operation(s) for authenticationmethodtokenservice.
+  tags:
+  - AuthenticationMethodTokenService
+  properties:
+  - type: OpenAPI
+    url: openapi/bito-authenticationmethodtokenservice-api-openapi.yml
+- aid: bito:bito-evaluationservice-api
+  name: Bito Evaluation Service API
+  description: The EvaluationService API from Bito — 3 operation(s) for evaluationservice.
+  tags:
+  - EvaluationService
+  properties:
+  - type: OpenAPI
+    url: openapi/bito-evaluationservice-api-openapi.yml
+- aid: bito:bito-flipt-api
+  name: Bito Flipt API
+  description: The Flipt API from Bito — 18 operation(s) for flipt.
+  tags:
+  - Flipt
+  properties:
+  - type: OpenAPI
+    url: openapi/bito-flipt-api-openapi.yml
+- aid: bito:bito-ofrepservice-api
+  name: Bito OFREP Service API
+  description: The OFREPService API from Bito — 3 operation(s) for ofrepservice.
+  tags:
+  - OFREPService
+  properties:
+  - type: OpenAPI
+    url: openapi/bito-ofrepservice-api-openapi.yml
+- aid: bito:bito-authentication-service-api
+  name: Bito Authentication Service API
+  description: The Authentication Service API from Bito — 4 operation(s) for authentication service.
+  tags:
+  - Authentication Service
+  properties:
+  - type: OpenAPI
+    url: openapi/bito-authentication-service-api-openapi.yml
 x-coverage:
   state: unreadable
   reason: js-rendered-docs

@@ -1,0 +1,163 @@
+openapi: 3.2.0
+info:
+  title: api OFREP Service API
+  version: 1.47.0
+servers:
+- url: http://localhost:8080
+security:
+- bearerAuth: []
+tags:
+- name: OFREPService
+paths:
+  /ofrep/v1/configuration:
+    get:
+      tags:
+      - OFREPService
+      description: OFREP provider configuration
+      operationId: ofrep.configuration
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetProviderConfigurationResponse'
+      summary: Ofrep configuration
+      x-summary-source: derived
+  /ofrep/v1/evaluate/flags:
+    post:
+      tags:
+      - OFREPService
+      description: OFREP bulk flag evaluation
+      operationId: ofrep.evaluateBulk
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EvaluateBulkRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkEvaluationResponse'
+      summary: Ofrep evaluate bulk
+      x-summary-source: derived
+  /ofrep/v1/evaluate/flags/{key}:
+    post:
+      tags:
+      - OFREPService
+      description: OFREP single flag evaluation
+      operationId: ofrep.evaluateFlag
+      parameters:
+      - name: key
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EvaluateFlagRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EvaluatedFlag'
+      summary: Ofrep evaluate flag
+      x-summary-source: derived
+components:
+  schemas:
+    EvaluateBulkRequest:
+      type: object
+      properties:
+        context:
+          type: object
+          additionalProperties:
+            type: string
+    GoogleProtobufValue:
+      description: Represents a dynamically typed value which can be either null, a number, a string, a boolean, a recursive struct value, or a list of values.
+    Polling:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        minPollingIntervalMs:
+          type: integer
+          format: uint32
+    FlagEvaluation:
+      type: object
+      properties:
+        supportedTypes:
+          type: array
+          items:
+            type: string
+    CacheInvalidation:
+      type: object
+      properties:
+        polling:
+          $ref: '#/components/schemas/Polling'
+    EvaluatedFlag:
+      type: object
+      properties:
+        key:
+          type: string
+        reason:
+          enum:
+          - UNKNOWN
+          - DISABLED
+          - TARGETING_MATCH
+          - DEFAULT
+          type: string
+          format: enum
+        variant:
+          type: string
+        metadata:
+          type: object
+        value:
+          $ref: '#/components/schemas/GoogleProtobufValue'
+    EvaluateFlagRequest:
+      type: object
+      properties:
+        key:
+          type: string
+        context:
+          type: object
+          additionalProperties:
+            type: string
+    Capabilities:
+      type: object
+      properties:
+        cacheInvalidation:
+          $ref: '#/components/schemas/CacheInvalidation'
+        flagEvaluation:
+          $ref: '#/components/schemas/FlagEvaluation'
+    BulkEvaluationResponse:
+      required:
+      - flags
+      type: object
+      properties:
+        flags:
+          type: array
+          items:
+            $ref: '#/components/schemas/EvaluatedFlag'
+    GetProviderConfigurationResponse:
+      type: object
+      properties:
+        name:
+          type: string
+        capabilities:
+          $ref: '#/components/schemas/Capabilities'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+    jwtAuth:
+      type: http
+      scheme: JWT

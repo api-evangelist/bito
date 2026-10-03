@@ -1,0 +1,92 @@
+openapi: 3.2.0
+info:
+  title: api Authentication Method Token Service API
+  version: 1.47.0
+servers:
+- url: http://localhost:8080
+security:
+- bearerAuth: []
+tags:
+- name: AuthenticationMethodTokenService
+paths:
+  /auth/v1/method/token:
+    post:
+      tags:
+      - AuthenticationMethodTokenService
+      operationId: createMethodToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTokenRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateTokenResponse'
+      summary: Create method token
+      x-summary-source: derived
+components:
+  schemas:
+    CreateTokenResponse:
+      type: object
+      properties:
+        clientToken:
+          type: string
+        authentication:
+          $ref: '#/components/schemas/Authentication'
+    Authentication:
+      type: object
+      properties:
+        id:
+          type: string
+        method:
+          enum:
+          - METHOD_NONE
+          - METHOD_TOKEN
+          - METHOD_OIDC
+          - METHOD_KUBERNETES
+          - METHOD_GITHUB
+          - METHOD_JWT
+          - METHOD_CLOUD
+          type: string
+          format: enum
+        expiresAt:
+          type: string
+          format: date-time
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+    CreateTokenRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        expiresAt:
+          type: string
+          format: date-time
+        namespaceKey:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+    jwtAuth:
+      type: http
+      scheme: JWT

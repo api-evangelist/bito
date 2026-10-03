@@ -1,0 +1,81 @@
+openapi: 3.2.0
+info:
+  title: api Authentication Method Kubernetes Service API
+  version: 1.47.0
+servers:
+- url: http://localhost:8080
+security:
+- bearerAuth: []
+tags:
+- name: AuthenticationMethodKubernetesService
+paths:
+  /auth/v1/method/kubernetes/serviceaccount:
+    post:
+      tags:
+      - AuthenticationMethodKubernetesService
+      operationId: kubernetesVerifyServiceAccount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifyServiceAccountRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerifyServiceAccountResponse'
+      summary: Kubernetes verify service account
+      x-summary-source: derived
+components:
+  schemas:
+    Authentication:
+      type: object
+      properties:
+        id:
+          type: string
+        method:
+          enum:
+          - METHOD_NONE
+          - METHOD_TOKEN
+          - METHOD_OIDC
+          - METHOD_KUBERNETES
+          - METHOD_GITHUB
+          - METHOD_JWT
+          - METHOD_CLOUD
+          type: string
+          format: enum
+        expiresAt:
+          type: string
+          format: date-time
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+    VerifyServiceAccountRequest:
+      type: object
+      properties:
+        serviceAccountToken:
+          type: string
+    VerifyServiceAccountResponse:
+      type: object
+      properties:
+        clientToken:
+          type: string
+        authentication:
+          $ref: '#/components/schemas/Authentication'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+    jwtAuth:
+      type: http
+      scheme: JWT

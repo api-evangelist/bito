@@ -1,0 +1,162 @@
+openapi: 3.2.0
+info:
+  title: api Authentication Service API
+  version: 1.47.0
+servers:
+- url: http://localhost:8080
+security:
+- bearerAuth: []
+tags:
+- name: Authentication Service
+paths:
+  /auth/v1/self:
+    get:
+      tags:
+      - Authentication Service
+      operationId: getAuthSelf
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Authentication'
+      summary: Get auth self
+      x-summary-source: derived
+  /auth/v1/self/expire:
+    put:
+      tags:
+      - Authentication Service
+      operationId: expireAuthSelf
+      parameters:
+      - name: expiresAt
+        in: query
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: OK
+          content: {}
+      summary: Expire auth self
+      x-summary-source: derived
+  /auth/v1/tokens:
+    get:
+      tags:
+      - Authentication Service
+      operationId: listAuthTokens
+      parameters:
+      - name: method
+        in: query
+        schema:
+          enum:
+          - METHOD_NONE
+          - METHOD_TOKEN
+          - METHOD_OIDC
+          - METHOD_KUBERNETES
+          - METHOD_GITHUB
+          - METHOD_JWT
+          - METHOD_CLOUD
+          type: string
+          format: enum
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAuthenticationsResponse'
+      summary: List auth tokens
+      x-summary-source: derived
+  /auth/v1/tokens/{id}:
+    get:
+      tags:
+      - Authentication Service
+      operationId: getAuthToken
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Authentication'
+      summary: Get auth token
+      x-summary-source: derived
+    delete:
+      tags:
+      - Authentication Service
+      operationId: deleteAuthToken
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content: {}
+      summary: Delete auth token
+      x-summary-source: derived
+components:
+  schemas:
+    Authentication:
+      type: object
+      properties:
+        id:
+          type: string
+        method:
+          enum:
+          - METHOD_NONE
+          - METHOD_TOKEN
+          - METHOD_OIDC
+          - METHOD_KUBERNETES
+          - METHOD_GITHUB
+          - METHOD_JWT
+          - METHOD_CLOUD
+          type: string
+          format: enum
+        expiresAt:
+          type: string
+          format: date-time
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+    ListAuthenticationsResponse:
+      type: object
+      properties:
+        authentications:
+          type: array
+          items:
+            $ref: '#/components/schemas/Authentication'
+        nextPageToken:
+          type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+    jwtAuth:
+      type: http
+      scheme: JWT

@@ -21,7 +21,16 @@ created: '2026-09-28'
 
 modified: '2026-09-28'
 
+x-docs-platform: gitbook
+x-docs-platform-confidence: high
+x-docs-platform-checked: 2026-10-03
 tags:
+- Company
+- Artificial Intelligence
+- Developer Tools
+- Software-as-a-Service
+- Machine Learning
+tags_raw:
 - Company
 - AI
 - Developer Tools
@@ -35,6 +44,9 @@ maintainers:
   email: info@apis.io
 
 common:
+- type: CapabilityMap
+  url: capabilities/bito-capability-edges.yml
+  name: Bito Business Capability Map
 - type: Plans
   url: plans/bito-plans-pricing.yml
 - type: Spectral
@@ -149,6 +161,8 @@ apis:
   name: Bito Authentication Service API
   description: The Authentication Service API from Bito — 4 operation(s) for authentication service.
   tags:
+  - AuthenticationService
+  tags_raw:
   - Authentication Service
   properties:
   - type: OpenAPI

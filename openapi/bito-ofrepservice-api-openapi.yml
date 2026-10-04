@@ -74,15 +74,29 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    EvaluateBulkRequest:
+    BulkEvaluationResponse:
+      required:
+      - flags
       type: object
       properties:
+        flags:
+          type: array
+          items:
+            $ref: '#/components/schemas/EvaluatedFlag'
+    EvaluateFlagRequest:
+      type: object
+      properties:
+        key:
+          type: string
         context:
           type: object
           additionalProperties:
             type: string
-    GoogleProtobufValue:
-      description: Represents a dynamically typed value which can be either null, a number, a string, a boolean, a recursive struct value, or a list of values.
+    CacheInvalidation:
+      type: object
+      properties:
+        polling:
+          $ref: '#/components/schemas/Polling'
     Polling:
       type: object
       properties:
@@ -91,18 +105,6 @@ components:
         minPollingIntervalMs:
           type: integer
           format: uint32
-    FlagEvaluation:
-      type: object
-      properties:
-        supportedTypes:
-          type: array
-          items:
-            type: string
-    CacheInvalidation:
-      type: object
-      properties:
-        polling:
-          $ref: '#/components/schemas/Polling'
     EvaluatedFlag:
       type: object
       properties:
@@ -122,14 +124,28 @@ components:
           type: object
         value:
           $ref: '#/components/schemas/GoogleProtobufValue'
-    EvaluateFlagRequest:
+    GoogleProtobufValue:
+      description: Represents a dynamically typed value which can be either null, a number, a string, a boolean, a recursive struct value, or a list of values.
+    GetProviderConfigurationResponse:
       type: object
       properties:
-        key:
+        name:
           type: string
+        capabilities:
+          $ref: '#/components/schemas/Capabilities'
+    EvaluateBulkRequest:
+      type: object
+      properties:
         context:
           type: object
           additionalProperties:
+            type: string
+    FlagEvaluation:
+      type: object
+      properties:
+        supportedTypes:
+          type: array
+          items:
             type: string
     Capabilities:
       type: object
@@ -138,22 +154,6 @@ components:
           $ref: '#/components/schemas/CacheInvalidation'
         flagEvaluation:
           $ref: '#/components/schemas/FlagEvaluation'
-    BulkEvaluationResponse:
-      required:
-      - flags
-      type: object
-      properties:
-        flags:
-          type: array
-          items:
-            $ref: '#/components/schemas/EvaluatedFlag'
-    GetProviderConfigurationResponse:
-      type: object
-      properties:
-        name:
-          type: string
-        capabilities:
-          $ref: '#/components/schemas/Capabilities'
   securitySchemes:
     bearerAuth:
       type: http

@@ -71,6 +71,61 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    BatchEvaluationResponse:
+      type: object
+      properties:
+        requestId:
+          type: string
+        responses:
+          type: array
+          items:
+            $ref: '#/components/schemas/EvaluationResponse'
+        requestDurationMillis:
+          type: number
+          format: double
+    EvaluationResponse:
+      type: object
+      properties:
+        type:
+          enum:
+          - VARIANT_EVALUATION_RESPONSE_TYPE
+          - BOOLEAN_EVALUATION_RESPONSE_TYPE
+          - ERROR_EVALUATION_RESPONSE_TYPE
+          type: string
+          format: enum
+        booleanResponse:
+          $ref: '#/components/schemas/BooleanEvaluationResponse'
+        variantResponse:
+          $ref: '#/components/schemas/VariantEvaluationResponse'
+        errorResponse:
+          $ref: '#/components/schemas/ErrorEvaluationResponse'
+    BooleanEvaluationResponse:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        reason:
+          enum:
+          - UNKNOWN_EVALUATION_REASON
+          - FLAG_DISABLED_EVALUATION_REASON
+          - MATCH_EVALUATION_REASON
+          - DEFAULT_EVALUATION_REASON
+          type: string
+          format: enum
+        requestId:
+          type: string
+        requestDurationMillis:
+          type: number
+          format: double
+        timestamp:
+          type: string
+          format: date-time
+        flagKey:
+          type: string
+        segmentKeys:
+          type: array
+          items:
+            type: string
     BatchEvaluationRequest:
       required:
       - requests
@@ -84,6 +139,41 @@ components:
             $ref: '#/components/schemas/EvaluationRequest'
         reference:
           type: string
+    EvaluationRequest:
+      required:
+      - namespaceKey
+      - flagKey
+      - entityId
+      - context
+      type: object
+      properties:
+        requestId:
+          type: string
+        namespaceKey:
+          type: string
+        flagKey:
+          type: string
+        entityId:
+          type: string
+        context:
+          type: object
+          additionalProperties:
+            type: string
+        reference:
+          type: string
+    ErrorEvaluationResponse:
+      type: object
+      properties:
+        flagKey:
+          type: string
+        namespaceKey:
+          type: string
+        reason:
+          enum:
+          - UNKNOWN_ERROR_EVALUATION_REASON
+          - NOT_FOUND_ERROR_EVALUATION_REASON
+          type: string
+          format: enum
     VariantEvaluationResponse:
       type: object
       properties:
@@ -114,96 +204,6 @@ components:
           type: string
           format: date-time
         flagKey:
-          type: string
-    EvaluationResponse:
-      type: object
-      properties:
-        type:
-          enum:
-          - VARIANT_EVALUATION_RESPONSE_TYPE
-          - BOOLEAN_EVALUATION_RESPONSE_TYPE
-          - ERROR_EVALUATION_RESPONSE_TYPE
-          type: string
-          format: enum
-        booleanResponse:
-          $ref: '#/components/schemas/BooleanEvaluationResponse'
-        variantResponse:
-          $ref: '#/components/schemas/VariantEvaluationResponse'
-        errorResponse:
-          $ref: '#/components/schemas/ErrorEvaluationResponse'
-    BatchEvaluationResponse:
-      type: object
-      properties:
-        requestId:
-          type: string
-        responses:
-          type: array
-          items:
-            $ref: '#/components/schemas/EvaluationResponse'
-        requestDurationMillis:
-          type: number
-          format: double
-    BooleanEvaluationResponse:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        reason:
-          enum:
-          - UNKNOWN_EVALUATION_REASON
-          - FLAG_DISABLED_EVALUATION_REASON
-          - MATCH_EVALUATION_REASON
-          - DEFAULT_EVALUATION_REASON
-          type: string
-          format: enum
-        requestId:
-          type: string
-        requestDurationMillis:
-          type: number
-          format: double
-        timestamp:
-          type: string
-          format: date-time
-        flagKey:
-          type: string
-        segmentKeys:
-          type: array
-          items:
-            type: string
-    ErrorEvaluationResponse:
-      type: object
-      properties:
-        flagKey:
-          type: string
-        namespaceKey:
-          type: string
-        reason:
-          enum:
-          - UNKNOWN_ERROR_EVALUATION_REASON
-          - NOT_FOUND_ERROR_EVALUATION_REASON
-          type: string
-          format: enum
-    EvaluationRequest:
-      required:
-      - namespaceKey
-      - flagKey
-      - entityId
-      - context
-      type: object
-      properties:
-        requestId:
-          type: string
-        namespaceKey:
-          type: string
-        flagKey:
-          type: string
-        entityId:
-          type: string
-        context:
-          type: object
-          additionalProperties:
-            type: string
-        reference:
           type: string
   securitySchemes:
     bearerAuth:

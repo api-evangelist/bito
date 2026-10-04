@@ -31,6 +31,13 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    VerifyServiceAccountResponse:
+      type: object
+      properties:
+        clientToken:
+          type: string
+        authentication:
+          $ref: '#/components/schemas/Authentication'
     Authentication:
       type: object
       properties:
@@ -65,13 +72,6 @@ components:
       properties:
         serviceAccountToken:
           type: string
-    VerifyServiceAccountResponse:
-      type: object
-      properties:
-        clientToken:
-          type: string
-        authentication:
-          $ref: '#/components/schemas/Authentication'
   securitySchemes:
     bearerAuth:
       type: http

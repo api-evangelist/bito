@@ -12,7 +12,9 @@
     "bito-flipt-api-openapi.yml",
     "bito-ofrepservice-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
@@ -27,7 +29,16 @@
     "flipt-openapi.yaml: declared missing tag: SegmentsService",
     "flipt-openapi.yaml: declared missing tag: VariantsService",
     "flipt-openapi.yaml: multi-axis tagging (15 tags, 7 first tags, 1.71x duplication over 51 operations) \u2014 split on first tag, 36 operations narrowed",
-    "apis.yml register: written (+7 apis, 7 total)"
+    "superseded outputs removed: bito-authentication-service-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 7 total)"
   ],
-  "skipped": []
+  "skipped": [
+    "bito-authentication-service-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bito-authenticationmethodkubernetesservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bito-authenticationmethodoidcservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bito-authenticationmethodtokenservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bito-evaluationservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bito-flipt-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bito-ofrepservice-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

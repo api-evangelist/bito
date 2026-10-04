@@ -38,6 +38,22 @@ components:
           type: string
         authentication:
           $ref: '#/components/schemas/Authentication'
+    CreateTokenRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        expiresAt:
+          type: string
+          format: date-time
+        namespaceKey:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
     Authentication:
       type: object
       properties:
@@ -63,22 +79,6 @@ components:
         updatedAt:
           type: string
           format: date-time
-        metadata:
-          type: object
-          additionalProperties:
-            type: string
-    CreateTokenRequest:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        expiresAt:
-          type: string
-          format: date-time
-        namespaceKey:
-          type: string
         metadata:
           type: object
           additionalProperties:

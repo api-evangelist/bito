@@ -1,0 +1,45 @@
+slug: bito
+provider: Bito
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: Flipt
+  spec_file: bito-flipt-api-openapi.yml
+  capability_id: BC-4210.50
+  capability_id_l1: BC-4210
+  capability_name: Feature Flag Management
+  confidence: 0.9
+  evidence: POST /api/v1/namespaces/{namespaceKey}/flags  createFlag  Create flag; POST /api/v1/namespaces/{namespaceKey}/flags/{flagKey}/rollouts  createRollout;
+    schemas Flag, Variant, Rule, SegmentList
+  reason: Full CRUD over flags, variants, segments, rules and rollouts is textbook feature-flag lifecycle
+    and targeting management.
+- tag: OFREPService
+  spec_file: bito-ofrepservice-api-openapi.yml
+  capability_id: BC-4210.50
+  capability_id_l1: BC-4210
+  capability_name: Feature Flag Management
+  confidence: 0.8
+  evidence: POST /ofrep/v1/evaluate/flags  ofrep.evaluateBulk  Ofrep evaluate bulk; POST /ofrep/v1/evaluate/flags/{key}  ofrep.evaluateFlag;
+    schemas EvaluatedFlag, FlagEvaluation
+  reason: OpenFeature Remote Evaluation Protocol endpoints that resolve flag values at runtime — feature
+    flag runtime control.
+- tag: EvaluationService
+  spec_file: bito-evaluationservice-api-openapi.yml
+  capability_id: BC-4210.50
+  capability_id_l1: BC-4210
+  capability_name: Feature Flag Management
+  confidence: 0.75
+  evidence: POST /evaluate/v1/boolean  evaluateBoolean  Evaluate boolean; POST /evaluate/v1/variant  evaluateVariant  Evaluate
+    variant; schemas VariantEvaluationResponse, BooleanEvaluationResponse
+  reason: The operations are runtime evaluation of boolean and variant flags (the Flipt feature-flag engine's
+    evaluation surface), which is runtime control of feature flags rather than any business-domain evaluation.

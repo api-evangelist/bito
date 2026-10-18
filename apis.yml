@@ -161,6 +161,8 @@ apis:
   name: Bito Authentication Service API
   description: The Authentication Service API from Bito — 4 operation(s) for authentication service.
   tags:
+  - AuthenticationService
+  tags_raw:
   - Authentication Service
   properties:
   - type: OpenAPI
